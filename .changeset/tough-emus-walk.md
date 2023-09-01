@@ -1,5 +1,0 @@
----
-"testlint": patch
----
-
-destroy changelog
