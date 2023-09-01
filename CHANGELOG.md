@@ -1,5 +1,15 @@
 ## 0.2.0
 
+## 0.4.0
+
+### Minor Changes
+
+- [`60996ca`](https://github.com/abeforgit/test-changesets/commit/60996ca50d7cba7e904e02c1f4206e6f703bc3f3) Thanks [@abeforgit](https://github.com/abeforgit)! - get correct vresion for changelog
+
+### Patch Changes
+
+- [`153bd49`](https://github.com/abeforgit/test-changesets/commit/153bd49f924bfd655156c5fba21465c5db57ac5d) Thanks [@abeforgit](https://github.com/abeforgit)! - try for clean version
+
 ## 0.3.0
 
 ### Minor Changes
