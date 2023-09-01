@@ -1,11 +1,13 @@
 {
+  "git": {
+    "requireCleanWorkingDir": false
+  },
   "github": {
     "release": true
   },
 
   "plugins": {
-    "news-fragments": {
-    }
+    "./scripts/changeset-plugin.mjs": {}
   },
 
   "npm": false

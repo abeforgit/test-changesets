@@ -10,7 +10,7 @@ export const BumpLevels = {
   minor: 2,
   major: 3,
 };
-import {Plugin} from 'release-it';
+import { Plugin } from "release-it";
 export function getChangelogEntry(changelog, version) {
   let ast = unified().use(remarkParse).parse(changelog);
 
@@ -64,17 +64,24 @@ export function sortTheThings(a, b) {
   }
   return -1;
 }
-let changelogFileName = path.join("CHANGELOG.md");
-let changelog = await fs.readFile(changelogFileName, "utf8");
-let result = getChangelogEntry(changelog, "0.1.1");
-console.log(result);
 
 export default class ChangesetPlugin extends Plugin {
-  bump() {
-    this.exec("npx changeset version");
+  init() {
+    this.log.info("init");
   }
-
-  getIncrementedVersion() {
-
+  beforeBump() {
+    this.log.info("beforeBump");
+  }
+  async getChangelog(latestVersion) {
+    this.log.info('getChangelog')
+    this.exec("npx changeset version")
+    let changelogFileName = path.join("CHANGELOG.md");
+    let changelog = await fs.readFile(changelogFileName, "utf8");
+    let result = getChangelogEntry(changelog, latestVersion);
+    return result.content;
+  }
+  getIncrement() {
+    this.log.info("getIncrement")
+  return "patch";
   }
 }
