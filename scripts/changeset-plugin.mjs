@@ -74,21 +74,20 @@ export default class ChangesetPlugin extends Plugin {
   beforeBump() {
     this.log.info("beforeBump");
   }
-  async getChangelog(latestVersion) {
+  async getChangelog() {
     this.log.info("getChangelog");
     await this.exec("npx changeset version");
+    const { rootPackage } = await getPackages(process.cwd());
+    const newVersion = rootPackage.packageJson.version;
     const changelogFileName = path.join("CHANGELOG.md");
     const changelog = await fs.readFile(changelogFileName, "utf8");
-    const { content, highestLevel } = getChangelogEntry(
-      changelog,
-      latestVersion
-    );
+    const { content, highestLevel } = getChangelogEntry(changelog, newVersion);
     this.setContext({ highestLevel });
     return content;
   }
   async getIncrementedVersion() {
     this.log.info("getIncrementedVersion");
-    const {rootPackage} = await getPackages(process.cwd());
+    const { rootPackage } = await getPackages(process.cwd());
     return rootPackage.packageJson.version;
   }
 }
