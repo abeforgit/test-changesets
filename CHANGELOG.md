@@ -1,5 +1,11 @@
 ## 0.2.0
 
+## 0.4.5
+
+### Patch Changes
+
+- [`edff549`](https://github.com/abeforgit/test-changesets/commit/edff549dde01097b06bfe222547a79a027ee2d48) Thanks [@abeforgit](https://github.com/abeforgit)! - add explanatory logging
+
 ## 0.4.4
 
 ### Patch Changes
