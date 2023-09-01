@@ -5,6 +5,8 @@ import remarkParse from "remark-parse";
 import remarkStringify from "remark-stringify";
 import { toString as mdastToString } from "mdast-util-to-string";
 import { getPackages } from "@manypkg/get-packages";
+import { Plugin } from "release-it";
+
 export const BumpLevels = {
   dep: 0,
   patch: 1,
@@ -12,8 +14,7 @@ export const BumpLevels = {
   major: 3,
 };
 export const BumpLevelLookup = ["dep", "patch", "minor", "major"];
-import { Plugin } from "release-it";
-//some change
+
 export function getChangelogEntry(changelog, version) {
   let ast = unified().use(remarkParse).parse(changelog);
 
@@ -91,7 +92,7 @@ export default class ChangesetPlugin extends Plugin {
     const newVersion = rootPackage.packageJson.version;
     const changelogFileName = path.join("CHANGELOG.md");
     const changelog = await fs.readFile(changelogFileName, "utf8");
-    const { content, highestLevel } = getChangelogEntry(changelog, newVersion);
+    const { content } = getChangelogEntry(changelog, newVersion);
     this.setContext({ newVersion });
     return content;
   }
