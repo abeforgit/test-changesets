@@ -1,5 +1,19 @@
 ## 0.2.0
 
+## 0.3.0
+
+### Minor Changes
+
+- [`4222c1e`](https://github.com/abeforgit/test-changesets/commit/4222c1e2c1350a6596680533205f6412bb0ba0d3) Thanks [@abeforgit](https://github.com/abeforgit)! - correctly detect version
+
+- [`1fba79a`](https://github.com/abeforgit/test-changesets/commit/1fba79aa8990a42e7ae1ce89e458b67493dc2cab) Thanks [@abeforgit](https://github.com/abeforgit)! - correctly find new version
+
+- [`ed79924`](https://github.com/abeforgit/test-changesets/commit/ed79924bc20278727af0a304d5614dcfd4f5bbba) Thanks [@abeforgit](https://github.com/abeforgit)! - change config
+
+### Patch Changes
+
+- [`e7e25a5`](https://github.com/abeforgit/test-changesets/commit/e7e25a54a9ad67de64acedae8fe49a5061139c7e) Thanks [@abeforgit](https://github.com/abeforgit)! - await changesets
+
 ### Minor Changes
 
 - [`9bd0e1b`](https://github.com/abeforgit/test-changesets/commit/9bd0e1bbe0a0691d8955ccadf756cac34eb45ef9) Thanks [@abeforgit](https://github.com/abeforgit)! - test minor
