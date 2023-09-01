@@ -13,6 +13,7 @@ export const BumpLevels = {
 };
 export const BumpLevelLookup = ["dep", "patch", "minor", "major"];
 import { Plugin } from "release-it";
+//some change
 export function getChangelogEntry(changelog, version) {
   let ast = unified().use(remarkParse).parse(changelog);
 
