@@ -1,5 +1,11 @@
 ## 0.2.0
 
+## 0.4.2
+
+### Patch Changes
+
+- [`05ef031`](https://github.com/abeforgit/test-changesets/commit/05ef03174311f97eb25c07d3517c069de208c181) Thanks [@abeforgit](https://github.com/abeforgit)! - check for status before running changeset releaser
+
 ## 0.4.1
 
 ### Patch Changes
