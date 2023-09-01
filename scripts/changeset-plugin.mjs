@@ -10,6 +10,7 @@ export const BumpLevels = {
   minor: 2,
   major: 3,
 };
+export const BumpLevelLookup = ["dep", "patch", "minor", "major"];
 import { Plugin } from "release-it";
 export function getChangelogEntry(changelog, version) {
   let ast = unified().use(remarkParse).parse(changelog);
@@ -73,15 +74,23 @@ export default class ChangesetPlugin extends Plugin {
     this.log.info("beforeBump");
   }
   async getChangelog(latestVersion) {
-    this.log.info('getChangelog')
-    await this.exec("npx changeset version")
-    let changelogFileName = path.join("CHANGELOG.md");
-    let changelog = await fs.readFile(changelogFileName, "utf8");
-    let result = getChangelogEntry(changelog, latestVersion);
-    return result.content;
+    this.log.info("getChangelog");
+    await this.exec("npx changeset version");
+    const changelogFileName = path.join("CHANGELOG.md");
+    const changelog = await fs.readFile(changelogFileName, "utf8");
+    const { content, highestLevel } = getChangelogEntry(
+      changelog,
+      latestVersion
+    );
+    this.setContext({ highestLevel });
+    return content;
   }
   getIncrement() {
-    this.log.info("getIncrement")
-  return "patch";
+    this.log.info("getIncrement");
+    const { highestLevel } = this.getContext();
+    if (highestLevel === undefined || highestLevel === null) {
+      throw new Error("could not find bump level");
+    }
+    return BumpLevelLookup[highestLevel];
   }
 }
