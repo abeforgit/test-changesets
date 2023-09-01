@@ -1,5 +1,13 @@
 ## 0.2.0
 
+## 0.4.4
+
+### Patch Changes
+
+- [`850140b`](https://github.com/abeforgit/test-changesets/commit/850140b5d870f582eb208f9e245e2725af585213) Thanks [@abeforgit](https://github.com/abeforgit)! - remove unused things
+
+- [`810bece`](https://github.com/abeforgit/test-changesets/commit/810beceb2bb6f51bafd16e832c36ed4154f889b6) Thanks [@abeforgit](https://github.com/abeforgit)! - something
+
 ## 0.4.3
 
 ### Patch Changes
