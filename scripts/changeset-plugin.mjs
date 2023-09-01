@@ -74,7 +74,7 @@ export default class ChangesetPlugin extends Plugin {
   }
   async getChangelog(latestVersion) {
     this.log.info('getChangelog')
-    this.exec("npx changeset version")
+    await this.exec("npx changeset version")
     let changelogFileName = path.join("CHANGELOG.md");
     let changelog = await fs.readFile(changelogFileName, "utf8");
     let result = getChangelogEntry(changelog, latestVersion);
