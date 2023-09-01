@@ -1,5 +1,0 @@
----
-"testlint": minor
----
-
-test minor
