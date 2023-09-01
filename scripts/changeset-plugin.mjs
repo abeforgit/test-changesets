@@ -4,6 +4,7 @@ import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkStringify from "remark-stringify";
 import { toString as mdastToString } from "mdast-util-to-string";
+import { getPackages } from "@manypkg/get-packages";
 export const BumpLevels = {
   dep: 0,
   patch: 1,
@@ -85,12 +86,9 @@ export default class ChangesetPlugin extends Plugin {
     this.setContext({ highestLevel });
     return content;
   }
-  getIncrement() {
-    this.log.info("getIncrement");
-    const { highestLevel } = this.getContext();
-    if (highestLevel === undefined || highestLevel === null) {
-      throw new Error("could not find bump level");
-    }
-    return BumpLevelLookup[highestLevel];
+  async getIncrementedVersion() {
+    this.log.info("getIncrementedVersion");
+    const {rootPackage} = await getPackages(process.cwd());
+    return rootPackage.packageJson.version;
   }
 }
