@@ -69,9 +69,9 @@ export function sortTheThings(a, b) {
 }
 
 export default class ChangesetPlugin extends Plugin {
-  init() {
+  async init() {
     this.log.info("init");
-    this.exec("npx changeset status")
+    await this.exec("npx changeset status")
   }
   beforeBump() {
     this.log.info("beforeBump");
