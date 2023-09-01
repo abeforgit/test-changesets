@@ -1,5 +1,11 @@
 ## 0.2.0
 
+## 0.4.3
+
+### Patch Changes
+
+- [`6c50f00`](https://github.com/abeforgit/test-changesets/commit/6c50f00ef6947fb67e782ab7712d597de972d2be) Thanks [@abeforgit](https://github.com/abeforgit)! - await the status exec
+
 ## 0.4.2
 
 ### Patch Changes
