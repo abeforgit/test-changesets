@@ -1,0 +1,5 @@
+---
+"testlint": minor
+---
+
+change config
