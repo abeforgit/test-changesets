@@ -71,9 +71,10 @@ export function sortTheThings(a, b) {
 
 export default class ChangesetPlugin extends Plugin {
   async init() {
-    this.log.info("init");
+    this.log.info("Validating changeset status");
     await this.exec("npx changeset status");
     try {
+      this.log.info("Checking difference between head and upstream");
       await this.exec("[[ ! $(git diff @ @{upstream}) ]]");
     } catch (e) {
       this.log.error(
@@ -82,18 +83,21 @@ export default class ChangesetPlugin extends Plugin {
       throw e;
     }
   }
-  beforeBump() {
-    this.log.info("beforeBump");
-  }
+  beforeBump() {}
   async getChangelog() {
-    this.log.info("getChangelog");
+    this.log.info("Collecting changesets and bumping version with: $ npx changeset version");
     await this.exec("npx changeset version");
+
+    this.log.info("Parsing package.json to get new version");
     const { rootPackage } = await getPackages(process.cwd());
     const newVersion = rootPackage.packageJson.version;
+    this.log.info(`Found new version ${newVersion}`);
+    this.setContext({ newVersion });
+
+    this.log.info("Parsing changelog file for new entry");
     const changelogFileName = path.join("CHANGELOG.md");
     const changelog = await fs.readFile(changelogFileName, "utf8");
     const { content } = getChangelogEntry(changelog, newVersion);
-    this.setContext({ newVersion });
     return content;
   }
   async getIncrementedVersion() {
