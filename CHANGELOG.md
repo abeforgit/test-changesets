@@ -1,5 +1,11 @@
 ## 0.2.0
 
+## 0.4.1
+
+### Patch Changes
+
+- [#1](https://github.com/abeforgit/test-changesets/pull/1) [`22d6bd8`](https://github.com/abeforgit/test-changesets/commit/22d6bd8bbac82d2f91bd639309de0200c52c2bfe) Thanks [@abeforgit](https://github.com/abeforgit)! - made some changes
+
 ## 0.4.0
 
 ### Minor Changes
