@@ -1,0 +1,12 @@
+{
+  "github": {
+    "release": true
+  },
+
+  "plugins": {
+    "news-fragments": {
+    }
+  },
+
+  "npm": false
+}

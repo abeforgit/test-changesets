@@ -1,0 +1,25 @@
+{
+  "changesets": [
+    {
+      "releases": [
+        {
+          "name": "testlint",
+          "type": "patch"
+        }
+      ],
+      "summary": "test",
+      "id": "twelve-llamas-wink"
+    }
+  ],
+  "releases": [
+    {
+      "name": "testlint",
+      "type": "patch",
+      "oldVersion": "0.1.1",
+      "changesets": [
+        "twelve-llamas-wink"
+      ],
+      "newVersion": "0.1.2"
+    }
+  ]
+}
